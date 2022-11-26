@@ -43,6 +43,10 @@ Prettier is an opinionated code formatter. It enforces a consistent style by par
 
 - [npm - prettier](https://www.npmjs.com/package/prettier)
 
+## ESLint vs Prettier
+
+[Source](https://blog.logrocket.com/using-prettier-eslint-automate-formatting-fixing-javascript/#managing-eslint-rules-avoid-conflict-prettier)
+
 ## Husky
 
 Husky is a package that allows custom scripts to be ran against your Git repository. These scripts trigger actions in response to specific events, so they can help you automate your development lifecycle.
