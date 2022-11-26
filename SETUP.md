@@ -16,7 +16,7 @@ git init
 
 ESLint is a tool for identifying and reporting on patterns found in ECMAScript/JavaScript code.
 
-*Already included in project initialization.*
+_Already included in project initialization._
 
 **References**
 
@@ -26,7 +26,7 @@ ESLint is a tool for identifying and reporting on patterns found in ECMAScript/J
 
 Prettier is an opinionated code formatter. It enforces a consistent style by parsing your code and re-printing it with its own rules that take the maximum line length into account, wrapping code when necessary.
 
-*Already included in project initialization.*
+_Already included in project initialization._
 
 `package.json`
 
@@ -47,6 +47,30 @@ Prettier is an opinionated code formatter. It enforces a consistent style by par
 
 [Source](https://blog.logrocket.com/using-prettier-eslint-automate-formatting-fixing-javascript/#managing-eslint-rules-avoid-conflict-prettier)
 
+## lint-staged
+
+Run linters **against staged Git files** and don't let 💩 slip into your code base!
+
+```
+npm i -D lint-staged
+```
+
+`package.json`
+
+```json
+...
+  "lint-staged": {
+    "*.{js,ts,tsx,json,md,html}": [
+      "prettier --write"
+    ]
+  }
+...
+```
+
+**References**
+
+- [npm - lint-staged](https://www.npmjs.com/package/lint-staged)
+
 ## Husky
 
 Husky is a package that allows custom scripts to be ran against your Git repository. These scripts trigger actions in response to specific events, so they can help you automate your development lifecycle.
@@ -55,7 +79,7 @@ Husky is a package that allows custom scripts to be ran against your Git reposit
 npm i -D husky
 npm pkg set scripts.prepare="husky install"
 npm run prepare
-npx husky add .husky/pre-commit "npm run tidy && npm run lint && npm run test -- --watchAll=false --passWithNoTests"
+npx husky add .husky/pre-commit "npx lint-staged && npm run lint && npm run test -- --watchAll=false --passWithNoTests"
 ```
 
 `.husky/pre-commit`
@@ -64,7 +88,7 @@ npx husky add .husky/pre-commit "npm run tidy && npm run lint && npm run test --
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-npm run tidy && npm run lint && npm run test -- --watchAll=false --passWithNoTests
+npx lint-staged && npm run lint && npm run test -- --watchAll=false --passWithNoTests
 ```
 
 **References**
