@@ -18,6 +18,22 @@ ESLint is a tool for identifying and reporting on patterns found in ECMAScript/J
 
 _Already included in project initialization._
 
+`.eslintignore`
+
+```
+# don't ever lint node_modules
+node_modules
+node_modules/*
+
+# don't lint build output (make sure it's set to your correct build folder name)
+dist
+build
+
+# don't lint nyc coverage output
+coverage
+src/serviceWorker.ts
+```
+
 **References**
 
 - [npm - eslint](https://www.npmjs.com/package/eslint)
